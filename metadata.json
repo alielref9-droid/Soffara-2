@@ -1,0 +1,6 @@
+{
+  "name": "Soffara",
+  "description": "Football crew app for field bookings, team draw, group chat, and memories",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

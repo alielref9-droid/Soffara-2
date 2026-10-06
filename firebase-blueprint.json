@@ -1,0 +1,116 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile in Soffara crew",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "pin": { "type": "string" },
+        "photo_url": { "type": "string" },
+        "positions": { "type": "array" },
+        "level": { "type": "string" },
+        "is_admin": { "type": "boolean" },
+        "auth_uid": { "type": "string" },
+        "auth_email": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Football pitch match booking",
+      "type": "object",
+      "properties": {
+        "field_name": { "type": "string" },
+        "address": { "type": "string" },
+        "price": { "type": "number" },
+        "capacity": { "type": "integer" },
+        "match_date": { "type": "string" },
+        "time_from": { "type": "string" },
+        "time_to": { "type": "string" },
+        "notes": { "type": "string" },
+        "status": { "type": "string" },
+        "created_by": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["field_name", "match_date", "capacity"]
+    },
+    "Vote": {
+      "title": "Vote",
+      "description": "Player attendance vote for a match",
+      "type": "object",
+      "properties": {
+        "booking_id": { "type": "string" },
+        "member_id": { "type": "string" },
+        "member_name": { "type": "string" },
+        "status": { "type": "string" },
+        "reason": { "type": "string" },
+        "updated_at": { "type": "string" }
+      },
+      "required": ["booking_id", "member_name", "status"]
+    },
+    "Draw": {
+      "title": "Draw",
+      "description": "Team division draw",
+      "type": "object",
+      "properties": {
+        "booking_id": { "type": "string" },
+        "source": { "type": "string" },
+        "is_balanced": { "type": "boolean" },
+        "team_a": { "type": "array" },
+        "team_b": { "type": "array" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["team_a", "team_b"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Player payment towards match fee",
+      "type": "object",
+      "properties": {
+        "booking_id": { "type": "string" },
+        "player_name": { "type": "string" },
+        "amount": { "type": "number" },
+        "profile_id": { "type": "string" },
+        "is_guest": { "type": "boolean" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["booking_id", "player_name", "amount"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Chat message in crew room",
+      "type": "object",
+      "properties": {
+        "sender_id": { "type": "string" },
+        "sender_name": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["sender_name", "text"]
+    }
+  },
+  "firestore": {
+    "profiles": {
+      "$document": "UserProfile"
+    },
+    "bookings": {
+      "$document": "Booking"
+    },
+    "votes": {
+      "$document": "Vote"
+    },
+    "draws": {
+      "$document": "Draw"
+    },
+    "payments": {
+      "$document": "Payment"
+    },
+    "messages": {
+      "$document": "ChatMessage"
+    }
+  }
+}

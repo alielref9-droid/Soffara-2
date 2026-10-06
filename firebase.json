@@ -1,0 +1,8 @@
+{
+  "firestore": [
+    {
+      "database": "ai-studio-android-soffara-77f4f309-c86f-4dda-9977-1f9a9c230e1d",
+      "rules": "firestore.rules"
+    }
+  ]
+}
